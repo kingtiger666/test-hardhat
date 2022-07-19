@@ -1,9 +1,12 @@
+import * as dotenv from 'dotenv';
 import { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox';
 import '@nomiclabs/hardhat-ethers';
 import '@nomicfoundation/hardhat-chai-matchers';
 import '@nomiclabs/hardhat-etherscan';
 import 'hardhat-gas-reporter';
+
+dotenv.config();
 
 const config: HardhatUserConfig = {
 	solidity: {
@@ -43,6 +46,7 @@ const config: HardhatUserConfig = {
 		timeout: 2000000,
 	},
 	gasReporter: {
+		enabled: process.env.REPORT_GAS !== undefined,
 		currency: 'USD',
 		gasPrice: 21,
 	},
