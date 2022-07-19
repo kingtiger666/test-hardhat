@@ -5,6 +5,7 @@ import '@nomiclabs/hardhat-ethers';
 import '@nomicfoundation/hardhat-chai-matchers';
 import '@nomiclabs/hardhat-etherscan';
 import 'hardhat-gas-reporter';
+import { EtherscanProvider } from '@ethersproject/providers';
 
 dotenv.config();
 
@@ -48,7 +49,10 @@ const config: HardhatUserConfig = {
 	gasReporter: {
 		enabled: process.env.REPORT_GAS !== undefined,
 		currency: 'USD',
-		gasPrice: 21,
+		coinmarketcap: process.env.COINMARKETCAP_API_KEY,
+		showTimeSpent: true,
+		gasPriceApi: "https://api.bscscan.com/api?module=proxy&action=eth_gasPrice",
+		token: 'BNB'
 	},
 };
 
