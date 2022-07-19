@@ -43,7 +43,7 @@ const config: HardhatUserConfig = {
 		timeout: 2000000,
 	},
 	gasReporter: {
-		currency: 'EUR',
+		currency: 'USD',
 		gasPrice: 21,
 	},
 };
